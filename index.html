@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#090b14">
+  <title>Shadow Warriors: Legends</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}
+  </script>
+</head>
+<body>
+  <main id="app">
+    <div id="game-wrap"><canvas id="game"></canvas></div>
+    <header class="topbar">
+      <div class="brand"><span class="sigil">✦</span><span>SHADOW WARRIORS <small>LEGENDS</small></span></div>
+      <div class="topstats"><span id="level">LV 1</span><span id="coins">◈ 0</span><button id="soundBtn" aria-label="Toggle sound">♫</button></div>
+    </header>
+    <section id="menu" class="panel">
+      <div class="eyebrow">THE FIVE KINGDOMS ARE FALLING</div>
+      <h1>SHADOW<br><em>WARRIORS</em></h1>
+      <p class="subtitle">LEGENDS · CHAPTER ONE: THE AWAKENING</p>
+      <p class="intro">An ancient force stirs beneath the kingdoms. Take up your blade, master the elements, and face the coming Void.</p>
+      <div class="menu-grid">
+        <button class="primary" data-mode="story">ENTER STORY</button>
+        <button data-mode="battle">BATTLE</button>
+        <button data-mode="survival">SURVIVAL</button>
+        <button data-mode="training">TRAINING</button>
+        <button data-mode="boss">BOSS RUSH</button>
+        <button data-mode="tournament">TOURNAMENT</button>
+      </div>
+      <div class="menu-foot"><button id="charactersBtn">FIGHTERS</button><button id="weaponsBtn">ARSENAL</button><button id="skillsBtn">SKILLS</button><button id="profileBtn">PROFILE</button><button id="settingsBtn">SETTINGS</button></div>
+      <p class="tiny">Original browser game · Progress saves on this device</p>
+    </section>
+    <section id="fighterPanel" class="panel subpanel hidden">
+      <button class="back">← BACK</button><div class="eyebrow">CHOOSE YOUR WARRIOR</div><h2 id="fighterName">KAIRO</h2>
+      <p id="fighterDesc"></p><div class="statline" id="fighterStats"></div>
+      <div class="fighter-nav"><button id="prevFighter">‹</button><span id="fighterCount"></span><button id="nextFighter">›</button></div>
+      <button id="selectFighter" class="primary">SELECT FIGHTER</button>
+    </section>
+    <section id="infoPanel" class="panel subpanel hidden">
+      <button class="back">← BACK</button><div class="eyebrow" id="infoEyebrow">HERO PROFILE</div><h2 id="infoTitle">PROFILE</h2><div id="infoBody"></div>
+    </section>
+    <section id="result" class="panel hidden">
+      <div class="eyebrow">BATTLE REPORT</div><h2 id="resultTitle">VICTORY</h2><p id="resultText"></p><button id="continueBtn" class="primary">CONTINUE</button>
+    </section>
+    <div id="hud" class="hud hidden">
+      <div class="health-row"><div class="health-card"><span>KAIRO</span><div class="bar"><i id="playerHealth"></i></div><small id="playerHpText">100 / 100</small></div><div class="round-label" id="roundLabel">ROUND 1</div><div class="health-card enemy"><span id="enemyName">RIVAL</span><div class="bar"><i id="enemyHealth"></i></div><small id="enemyHpText">100 / 100</small></div></div>
+      <div class="energy"><span>ENERGY</span><div class="bar"><i id="energyBar"></i></div></div>
+      <div class="combat-hint" id="combatHint">FIGHT!</div>
+      <div class="mobile-controls">
+        <div class="movement"><div id="stick" class="stick"><div class="stick-knob"></div></div><span>MOVE</span></div>
+        <div class="actions">
+          <button data-action="jump">JUMP</button><button data-action="block">GUARD</button>
+          <button data-action="punch">PUNCH</button><button data-action="kick">KICK</button>
+          <button data-action="heavy" class="heavy">HEAVY</button><button data-action="special" class="special">POWER</button>
+          <button data-action="dodge">DODGE</button>
+        </div>
+      </div>
+      <button id="pauseBtn" class="pause">Ⅱ</button>
+    </div>
+    <div id="pausePanel" class="panel hidden"><div class="eyebrow">BATTLE PAUSED</div><h2>TAKE A BREATH</h2><button id="resumeBtn" class="primary">RESUME</button><button id="quitBtn">RETURN TO MENU</button></div>
+    <div id="toast" class="toast"></div>
+  </main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
